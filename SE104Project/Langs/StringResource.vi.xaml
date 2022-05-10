@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:SystemGesture="clr-namespace:System;assembly=mscorlib">
+    <SystemGesture:String x:Key="login">ĐĂNG NHẬP</SystemGesture:String>
+    <SystemGesture:String x:Key="createaccount">TẠO TÀI KHOẢN</SystemGesture:String>
+    <SystemGesture:String x:Key="enterusername">Tên đăng nhập</SystemGesture:String>
+    <SystemGesture:String x:Key="enterpassword">Mật khẩu</SystemGesture:String>
+    <SystemGesture:String x:Key="setting">Cài đặt</SystemGesture:String>
+    <SystemGesture:String x:Key="minimize">Thu nhỏ</SystemGesture:String>
+    <SystemGesture:String x:Key="close">Đóng</SystemGesture:String>
+    <SystemGesture:String x:Key="donthaveanaccount">Không có tài khoản?</SystemGesture:String>
+    <SystemGesture:String x:Key="forgotpass">Quên mật khẩu?</SystemGesture:String>
+</ResourceDictionary>

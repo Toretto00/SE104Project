@@ -1,0 +1,224 @@
+﻿<Window x:Class="SE104Project.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:SE104Project"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="760" Width="450"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <materialDesign:Card UniformCornerRadius="15"
+                         Background="{DynamicResource MaterialDesignPaper}"
+                         materialDesign:ShadowAssist.ShadowDepth="Depth4">
+        <materialDesign:DialogHost BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                   x:Name="dialogHost"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="300" Height="240" HorizontalAlignment="Center">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="Verify your email"
+                                   Style="{StaticResource MaterialDesignHeadline1TextBlock}"
+                                   FontSize="18"
+                                   FontWeight="DemiBold"
+                                   Foreground="Gray"/>
+                        <Grid Margin="5"
+                              Height="100">
+                            <TextBox VerticalAlignment="Center"
+                                     x:Name="tbVerifyDialog"
+                                     Width="230"
+                                     FontSize="18"
+                                     materialDesign:HintAssist.Hint="CODE"
+                                     BorderThickness="2"
+                                     BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     TextChanged="verifyTextChanged"/>
+                        </Grid>
+                        <Button FontSize="16"
+                                Margin="10 5 0 0"
+                                Width="110"
+                                HorizontalAlignment="Left"
+                                x:Name="resendEmailBtn"
+                                Style="{StaticResource MaterialDesignToolButton}"
+                                Content="Resend email"
+                                Foreground="#FF2196F3"
+                                Click="resendEmail"/>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                IsCancel="True"
+                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                CommandParameter="Sample2Cancel"
+                                HorizontalAlignment="Right"
+                                Content="CANCEL"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+            <StackPanel Width="450"
+                        Height="760">                
+                <StackPanel HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+                    <Button Background="Transparent" 
+                            Foreground="Black"
+                            Margin="0 0 5 0"
+                            BorderBrush="Transparent"
+                            Click="minimize"
+                            Cursor="Hand"
+                            x:Name="minimizeBtn"
+                            ToolTip="{DynamicResource minimize}">
+                        <materialDesign:PackIcon Kind="WindowMinimize"/>
+                    </Button>
+                    <Button Background="Transparent" 
+                            Foreground="Black"
+                            Margin="0 0 5 0"
+                            BorderBrush="Transparent"
+                            Click="close"
+                            Cursor="Hand"
+                            x:Name="closeBtn"
+                            ToolTip="{DynamicResource close}">
+                        <materialDesign:PackIcon Kind="Close"/>
+                    </Button>
+                </StackPanel>
+                <Border Margin="0 50 0 0"
+                        CornerRadius="0 15 15 0"
+                        Width="280"
+                        Height="53"
+                        Background="#FF2196F3"                       
+                        HorizontalAlignment="Left">
+                    <TextBlock Text="CREATE ACCOUNT"
+                               FontSize="28"                       
+                               FontWeight="Bold"
+                               Foreground="White"
+                               Margin="10 0 0 0"
+                               VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Margin="80 50 0 0"
+                           Text="Your email is empty"
+                           Foreground="red"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                           Visibility="Hidden"
+                           x:Name="emailWarning"/>
+                <Grid Height="80">
+                    <TextBox VerticalAlignment="Center"
+                             x:Name="txtUsername"
+                             Width="300"
+                             FontSize="18"
+                             materialDesign:HintAssist.Hint="Email"
+                             BorderThickness="2"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                </Grid>
+                <TextBlock Text="Ex: example@gmail.com,..."
+                           Width="300"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
+                <TextBlock Margin="80 0 0 0"
+                           Text="Your password is empty"
+                           Foreground="red"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                           Visibility="Hidden"
+                           x:Name="pass1Warning"/>
+                <Grid Height="80">
+                    <PasswordBox x:Name="txtPassword1" 
+                                 VerticalAlignment="Center"
+                                 Width="300"
+                                 FontSize="18"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 BorderThickness="2"
+                                 BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
+                    <TextBox x:Name="txbPassword1" 
+                            VerticalAlignment="Center"
+                            Width="300"
+                            FontSize="18"
+                            materialDesign:HintAssist.Hint="Password"
+                            BorderThickness="2"
+                            BorderBrush="{DynamicResource MaterialDesignDivider}"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            Visibility="Collapsed"/>
+                    <ToggleButton HorizontalAlignment="Right"
+                                  Margin="0 0 85 0"
+                                  Checked="showPassword_Checked1"
+                                  Unchecked="showPassword_Unchecked1" 
+                                  Cursor="Hand"
+                                  IsEnabled="False"
+                                  Style="{StaticResource MaterialDesignActionToggleButton}">
+                        <ToggleButton.Content>
+                            <materialDesign:PackIcon Kind="Eye"/>
+                        </ToggleButton.Content>
+                        <materialDesign:ToggleButtonAssist.OnContent>
+                            <materialDesign:PackIcon Kind="EyeOff"/>
+                        </materialDesign:ToggleButtonAssist.OnContent>
+                    </ToggleButton>
+                </Grid>
+                <TextBlock Text="Password Requirements: At least 8 characters, no more than 15 characters, contain: number, uppercase letter and lowercase letter."
+                           TextWrapping="Wrap"
+                           Width="300"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
+                <TextBlock Margin="80 0 0 0"
+                           Text="Your password is empty"
+                           Foreground="red"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                           Visibility="Hidden"
+                           x:Name="pass2Warning"/>
+                <Grid Height="80">
+                    <PasswordBox x:Name="txtPassword2" 
+                                 VerticalAlignment="Center"
+                                 Width="300"
+                                 FontSize="18"
+                                 materialDesign:HintAssist.Hint="Confirm Password"
+                                 BorderThickness="2"
+                                 BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
+                    <TextBox x:Name="txbPassword2" 
+                             VerticalAlignment="Center"
+                             Width="300"
+                             FontSize="18"
+                             materialDesign:HintAssist.Hint="Confirm Password"
+                             BorderThickness="2"
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Visibility="Collapsed"/>
+                    <ToggleButton HorizontalAlignment="Right"
+                                  Margin="0 0 85 0"
+                                  Checked="showPassword_Checked2"
+                                  Unchecked="showPassword_Unchecked2" 
+                                  Cursor="Hand"
+                                  IsEnabled="False"
+                                  Style="{StaticResource MaterialDesignActionToggleButton}">
+                        <ToggleButton.Content>
+                            <materialDesign:PackIcon Kind="Eye"/>
+                        </ToggleButton.Content>
+                        <materialDesign:ToggleButtonAssist.OnContent>
+                            <materialDesign:PackIcon Kind="EyeOff"/>
+                        </materialDesign:ToggleButtonAssist.OnContent>
+                    </ToggleButton>
+                </Grid>
+                <Button Margin="0 20 0 0" 
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Height="53"
+                        Width="300"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        FontSize="18"
+                        Content="Create Account"
+                        IsEnabled="False"/>
+                <StackPanel Orientation="Horizontal"
+                        Margin="0 20 0 0"
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="16"
+                           Text="Have an account?"
+                           VerticalAlignment="Center"/>
+                    <Button x:Name="forgotPassBtn"
+                        FontSize="16"
+                        Style="{StaticResource MaterialDesignToolButton}"
+                        Content="Login"
+                        Foreground="#FF2196F3"
+                        Click="loginWindow"/>
+                </StackPanel>
+            </StackPanel>          
+        </materialDesign:DialogHost>
+    </materialDesign:Card>
+</Window>

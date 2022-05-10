@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:SystemGesture="clr-namespace:System;assembly=mscorlib">
+    <SystemGesture:String x:Key="login">LOGIN</SystemGesture:String>
+    <SystemGesture:String x:Key="createaccount">CREATE ACCOUNT</SystemGesture:String>
+    <SystemGesture:String x:Key="enterusername">Enter Username</SystemGesture:String>
+    <SystemGesture:String x:Key="enterpassword">Enter Password</SystemGesture:String>
+    <SystemGesture:String x:Key="setting">Setting</SystemGesture:String>
+    <SystemGesture:String x:Key="minimize">Minimize</SystemGesture:String>
+    <SystemGesture:String x:Key="close">Close</SystemGesture:String>
+    <SystemGesture:String x:Key="donthaveanaccount">Don't have an account?</SystemGesture:String>
+    <SystemGesture:String x:Key="forgotpass">Forgot Password?</SystemGesture:String>
+</ResourceDictionary>
