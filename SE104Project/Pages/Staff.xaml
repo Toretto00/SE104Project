@@ -4,11 +4,240 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SE104Project.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Staff">
 
-    <Grid>
-        
-    </Grid>
+    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+            CornerRadius="8">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!--Start Filter-->
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Height="100">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="9"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Grid.Column" Value="1"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <StackPanel Orientation="Horizontal"
+                            Height="40"
+                            Margin="5">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="ID:"/>
+                        <TextBox x:Name="txbStaffID"
+                                 Grid.Column="1"
+                                 Width="100"
+                                 materialDesign:HintAssist.Hint="ID"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Name:"/>
+                        <TextBox x:Name="txbName"
+                                 Grid.Column="1"
+                                 Width="150"
+                                 materialDesign:HintAssist.Hint="Name"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Gender:"
+                                   Margin="8 8 6 6"/>
+                        <ComboBox x:Name="txbGender"
+                                  Grid.Column="1"
+                                  Width="60"
+                                  materialDesign:HintAssist.Hint="Gender"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem>
+                                Male
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Female
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                All
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Position:"
+                                   Margin="7"/>
+                        <ComboBox x:Name="txbposition"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  Grid.Column="1"
+                                  Width="100"
+                                  materialDesign:HintAssist.Hint="Position">
+                            <ComboBoxItem>
+                                Assistant
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Receptionist
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Height="40"
+                            Margin="5">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Phone number:"/>
+                        <TextBox x:Name="txbPhonenumber"
+                                 Grid.Column="1"
+                                 Width="100"
+                                 materialDesign:HintAssist.Hint="Phonenumber"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Address:"/>
+                        <TextBox x:Name="txbAddress"
+                                 Grid.Column="1"
+                                 Width="200"
+                                 materialDesign:HintAssist.Hint="Address"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Date of birth:"
+                                   Margin="7"/>
+                        <DatePicker Width="140"
+                                    Grid.Column="1"
+                                    materialDesign:HintAssist.Hint="Pick Date"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                    </Grid>
+
+                    
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Starting time:"
+                                   Margin="7"/>
+                        <DatePicker x:Name="datepickerStart" Width="140"
+                                    Grid.Column="1"
+                                    materialDesign:HintAssist.Hint="Pick Date"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                    </Grid>                    
+
+                </StackPanel>
+
+            </StackPanel>
+            <!--End Filter-->
+
+            <Grid Grid.Row="1">
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="Data"                               
+                              CanUserSortColumns="True"
+                              CanUserAddRows="False"
+                              AutoGenerateColumns="False"
+                              materialDesign:DataGridAssist.CellPadding="8"
+                              materialDesign:DataGridAssist.ColumnHeaderPadding="20"
+                              IsReadOnly="True" 
+                              FontSize="14">
+                        <!--<DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="_Edit" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="_Delete" Click="MenuItem_Click_1"></MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>-->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                        Header="STT"
+                                        MinWidth="50"/>
+                            <DataGridTextColumn Header="Mã nhân viên"
+                                         MinWidth="130"/>
+                            <DataGridTextColumn Header="Chức vụ"
+                                         MinWidth="100"/>
+                            <DataGridTextColumn Header="Họ tên"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Ngày sinh"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Giới tính"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Số CCCD"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Số điện thoại"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Địa chỉ"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Ngày vào làm"
+                                        MinWidth="130"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+                
+            </Grid>
+
+        </Grid>
+    </Border>
+    
 </Page>

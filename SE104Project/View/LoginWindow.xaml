@@ -8,13 +8,13 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="760" Width="450"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{x:Null}"
+        Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
 
     <materialDesign:Card UniformCornerRadius="15"
-                         Background="{DynamicResource MaterialDesignPaper}"
+                         Background="{DynamicResource PrimaryBackgroundColor}"
                          materialDesign:ShadowAssist.ShadowDepth="Depth4">
         <materialDesign:DialogHost CloseOnClickAway="True"
                                    x:Name="DialogHost">
@@ -213,7 +213,8 @@
             </materialDesign:DialogHost.DialogContent>
             <StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right"
+                            MouseLeftButtonDown="Window_MouseLeftButtonDown">
                     <materialDesign:PopupBox HorizontalAlignment="Right"
                                              Margin="5 15 310 14"
                                              PlacementMode="BottomAndAlignLeftEdges"
@@ -250,7 +251,7 @@
                                               Selected="languageChangeVI"/>
                             </ComboBox>
                         </StackPanel>
-                    </materialDesign:PopupBox>
+                    </materialDesign:PopupBox>                    
                     <Button Background="Transparent" 
                             Foreground="Black"
                             Margin="0 0 5 0"
@@ -273,7 +274,7 @@
                     </Button>
                 </StackPanel>
                 <Image Margin="0 50 0 0" 
-                       Source="./Image/logo.png"
+                       Source="/Image/logo.png"
                        Height="150"/>
                 <TextBlock Text="Email or Password is incorrect!"
                            Foreground="red"
@@ -351,7 +352,8 @@
                         materialDesign:ButtonAssist.CornerRadius="10"
                         FontSize="18"
                         Content="Login"
-                        IsEnabled="True" Click="btnLogin_Click"/>
+                        IsEnabled="True"
+                        Click="btnLogin_Click"/>
                 <TextBlock Margin="0 20 0 0" 
                            Height="20"
                            FontSize="16"

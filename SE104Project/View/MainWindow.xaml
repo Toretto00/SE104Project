@@ -88,7 +88,7 @@
                                 <Setter Property="Cursor" Value="Hand"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Background" Value="Gray"/>
+                                        <Setter Property="Background" Value="{DynamicResource PrimaryBlueColor}"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -224,7 +224,7 @@
             <!-- Start: GridColumn Rigth -->
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 

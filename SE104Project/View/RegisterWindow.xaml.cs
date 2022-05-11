@@ -140,5 +140,10 @@ namespace SE104Project
         {
             autoSendVerifyCode(txtUsername.Text);
         }
+
+        private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

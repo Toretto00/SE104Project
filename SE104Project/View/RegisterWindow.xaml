@@ -58,7 +58,8 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
             <StackPanel Width="450"
-                        Height="760">                
+                        Height="760"
+                        MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">                
                 <StackPanel HorizontalAlignment="Right"
                             Orientation="Horizontal">
                     <Button Background="Transparent" 
