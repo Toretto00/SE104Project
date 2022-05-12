@@ -178,12 +178,19 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Starting time:"
+                        <TextBlock Text="Busy:"
                                    Margin="7"/>
-                        <DatePicker x:Name="datepickerStart" Width="140"
+                        <ComboBox x:Name="datepickerStart" Width="50"
                                     Grid.Column="1"
-                                    materialDesign:HintAssist.Hint="Pick Date"
-                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    materialDesign:HintAssist.Hint="Busy"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem>
+                                Yes
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                No
+                            </ComboBoxItem>
+                        </ComboBox>
 
                     </Grid>                    
 
@@ -230,7 +237,7 @@
                                         MinWidth="130"/>
                             <DataGridTextColumn Header="Địa chỉ"
                                         MinWidth="130"/>
-                            <DataGridTextColumn Header="Ngày vào làm"
+                            <DataGridCheckBoxColumn Header="Đang làm việc"
                                         MinWidth="130"/>
                         </DataGrid.Columns>
                     </DataGrid>

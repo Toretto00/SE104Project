@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Code\SE104\SE104\SE104Project\obj\Debug\
+D:\Code\Github\SE104Project\SE104Project\obj\Debug\
 SE104Project
 none
 false
 DEBUG;TRACE
-D:\Code\SE104\SE104\SE104Project\App.xaml
+D:\Code\Github\SE104Project\SE104Project\App.xaml
 151692945911
 
 16-342180532
-21509206412
+2180034554
 Assets\Icons.xaml;Langs\StringResource.en.xaml;Langs\StringResource.vi.xaml;Pages\Bill.xaml;Pages\Food.xaml;Pages\Report.xaml;Pages\Staff.xaml;Pages\Wedding.xaml;Pages\WeddingHall.xaml;Pages\WeddingPartyBooking.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\RegisterWindow.xaml;
 
 True
