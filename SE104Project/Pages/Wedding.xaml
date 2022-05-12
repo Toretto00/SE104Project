@@ -4,11 +4,215 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SE104Project.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Wedding">
 
-    <Grid Background="White">
-        <TextBlock Text="WEDDING"/>
-    </Grid>
+    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+            CornerRadius="8">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Start Filter-->
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Height="100">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="9"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Grid.Column" Value="1"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Height="40"
+                            Margin="5">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="ID:"/>
+                        <TextBox x:Name="txbWeddingID"
+                                 Grid.Column="1"
+                                 Width="100"
+                                 materialDesign:HintAssist.Hint="ID"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Groom's Name:"/>
+                        <TextBox x:Name="txbGroomName"
+                                 Grid.Column="1"
+                                 Width="150"
+                                 materialDesign:HintAssist.Hint="Name"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Bride's Name:"/>
+                        <TextBox x:Name="txbBrideName"
+                                 Grid.Column="1"
+                                 Width="150"
+                                 materialDesign:HintAssist.Hint="Name"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>                   
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Hall:"
+                                   Margin="7"/>
+                        <ComboBox x:Name="comboboxHall"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  Grid.Column="1"
+                                  Width="100"
+                                  materialDesign:HintAssist.Hint="Hall">
+                            <ComboBoxItem>
+                                Hall 1
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Hall 2
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Height="40"
+                            Margin="5">                    
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Time:"
+                                   Margin="7"/>
+                        <DatePicker Width="140"
+                                    Grid.Column="1"
+                                    materialDesign:HintAssist.Hint="Pick Date"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Shift:"
+                                   Margin="7"/>
+                        <ComboBox x:Name="datepickerStart" Width="100"
+                                    Grid.Column="1"
+                                    materialDesign:HintAssist.Hint="Shift"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem>
+                                Afternoon
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Night
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Number of table:"/>
+                        <TextBox x:Name="txbNumberofTable"
+                                 Grid.Column="1"
+                                 Width="150"
+                                 materialDesign:HintAssist.Hint="Number"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </StackPanel>
+            <!--End Filter-->
+
+            <Grid Grid.Row="1">
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="Data"                               
+                              CanUserSortColumns="True"
+                              CanUserAddRows="False"
+                              AutoGenerateColumns="False"
+                              materialDesign:DataGridAssist.CellPadding="8"
+                              materialDesign:DataGridAssist.ColumnHeaderPadding="20"
+                              IsReadOnly="True" 
+                              FontSize="14">
+                        <!--<DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="_Edit" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="_Delete" Click="MenuItem_Click_1"></MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>-->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                        Header="STT"
+                                        MinWidth="50"/>
+                            <DataGridTextColumn Header="Mã tiệc cưới"
+                                         MinWidth="130"/>
+                            <DataGridTextColumn Header="Tên chú rễ"
+                                         MinWidth="100"/>
+                            <DataGridTextColumn Header="Tên cô dâu"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Sảnh"
+                                        MinWidth="130"/>                            
+                            <DataGridTextColumn Header="Ngày"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Ca"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Số lượng bàn"
+                                        MinWidth="130"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+
+            </Grid>
+
+        </Grid>
+    </Border>
 </Page>
