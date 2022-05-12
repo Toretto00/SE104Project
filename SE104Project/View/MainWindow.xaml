@@ -95,6 +95,7 @@
                         </StackPanel.Resources>
                         <Button x:Name="btnWeddingPartyBooking" 
                                 BorderThickness="0"
+                                ToolTip="Wedding party booking"
                                 Click="btnWeddingPartyBooking_Click">
                             <Grid Width="200">
                                 <Grid.ColumnDefinitions>
@@ -110,6 +111,7 @@
                             </Grid>
                         </Button>
                         <Button x:Name="btnWedding"
+                                ToolTip="Wedding"
                                 BorderThickness="0"
                                 Click="rdHome_Click">
                             <Grid Width="200">
@@ -126,6 +128,7 @@
                             </Grid>
                         </Button>
                         <Button x:Name="btnWeddingHall"
+                                ToolTip="Wedding Hall"
                                 BorderThickness="0"
                                 Click="btnWeddingHall_Click">
                             <Grid Width="200">
@@ -134,7 +137,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="/Image/icons8-wedding-64 (1).png"/>
-                                <TextBlock Text="Wedding hall"
+                                <TextBlock Text="Wedding Hall"
                                            Grid.Column="1"
                                            VerticalAlignment="Center"
                                            Margin="25 0 0 0"
@@ -142,6 +145,7 @@
                             </Grid>
                         </Button>
                         <Button x:Name="btnBill"
+                                ToolTip="Bill"
                                 BorderThickness="0"
                                 Click="btnBill_Click">
                             <Grid Width="200">
@@ -158,6 +162,7 @@
                             </Grid>
                         </Button>
                         <Button x:Name="btnStaff"
+                                ToolTip="Staff"
                                 BorderThickness="0"
                                 Click="btnStaff_Click">
                             <Grid Width="200">
@@ -174,6 +179,7 @@
                             </Grid>
                         </Button>
                         <Button x:Name="btnFood"
+                                ToolTip="Food"
                                 BorderThickness="0"
                                 Click="btnFood_Click">
                             <Grid Width="200">
@@ -190,6 +196,7 @@
                             </Grid>
                         </Button>
                         <Button x:Name="btnReport"
+                                ToolTip="Report"
                                 BorderThickness="0"
                                 Click="btnReport_Click">
                             <Grid Width="200">
