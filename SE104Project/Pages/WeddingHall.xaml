@@ -4,11 +4,47 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SE104Project.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WeddingHall">
 
-    <Grid>
-        
-    </Grid>
+    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+            CornerRadius="8">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
+            <DataGrid x:Name="Data"                               
+                              CanUserSortColumns="True"
+                              CanUserAddRows="False"
+                              AutoGenerateColumns="False"
+                              materialDesign:DataGridAssist.CellPadding="8"
+                              materialDesign:DataGridAssist.ColumnHeaderPadding="20"
+                              IsReadOnly="True" 
+                              FontSize="14">
+                <!--<DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="_Edit" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="_Delete" Click="MenuItem_Click_1"></MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                                        Header="STT"
+                                        MinWidth="50"/>
+                    <DataGridTextColumn Header="Mã sảnh"
+                                         MinWidth="130"/>
+                    <DataGridTextColumn Header="Tên sảnh"
+                                         MinWidth="100"/>
+                    <DataGridTextColumn Header="Loại sảnh"
+                                        MinWidth="130"/>
+                    <DataGridTextColumn Header="Số lượng bàn tối đa"
+                                        MinWidth="130"/>
+                    <DataGridTextColumn Header="Đơn giá bàn tối thiểu"
+                                        MinWidth="130"/>
+                    <DataGridTextColumn Header="Ghi chú"
+                                        MinWidth="130"/>                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Border>
 </Page>
