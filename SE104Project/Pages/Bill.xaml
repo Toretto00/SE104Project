@@ -4,11 +4,181 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SE104Project.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Bill">
 
-    <Grid>
-        
-    </Grid>
+    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+        CornerRadius="8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Height="100">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="9"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    </Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Grid.Column" Value="1"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Height="40"
+                            Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="ID:"/>
+                        <TextBox x:Name="txbBillId"
+                                 Grid.Column="1"
+                                 Width="100"
+                                 materialDesign:HintAssist.Hint="ID"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Invoice Date"/>
+                        <DatePicker Width="120"
+                                    Style="{DynamicResource MaterialDesignDatePicker}" 
+                                    Grid.Column="1"
+                                    Height="40"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Status"/>
+                        <ComboBox Grid.Column="1"
+                                  Width="120"
+                                  Style="{DynamicResource MaterialDesignComboBox}" Height="30" Margin="0.4,10,-0.4,0">
+                            <ComboBoxItem Content="Đã thanh toán" HorizontalAlignment="Center"/>
+                            <ComboBoxItem Content="Chưa thanh toán" HorizontalAlignment="Stretch"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="ID Hall:"/>
+                        <TextBox x:Name="txbHallId"
+                                 Grid.Column="1"
+                                 Width="100"
+                                 materialDesign:HintAssist.Hint="ID"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Height="40"
+                            Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Check In Time"/>
+                        <materialDesign:TimePicker Grid.Column="1"
+                                                   Width="120"
+                                                   Height="40"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Check Out Time"/>
+                        <materialDesign:TimePicker Grid.Column="1"
+                                                   Width="120"
+                                                   Height="40"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Total: "/>
+                        <TextBox x:Name="txbTotalMoney"
+                                 Grid.Column="1"
+                                 Width="100"
+                                 materialDesign:HintAssist.Hint="Total"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="Data"                               
+                              CanUserSortColumns="True"
+                              CanUserAddRows="False"
+                              AutoGenerateColumns="False"
+                              materialDesign:DataGridAssist.CellPadding="8"
+                              materialDesign:DataGridAssist.ColumnHeaderPadding="20"
+                              IsReadOnly="True" 
+                              FontSize="14">
+                        <!--<DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="_Edit" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="_Delete" Click="MenuItem_Click_1"></MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>-->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                        Header="STT"
+                                        MinWidth="50"/>
+                            <DataGridTextColumn Header="Mã hóa đơn"
+                                         MinWidth="130"/>
+                            <DataGridTextColumn Header="Ngày tạo hóa đơn"
+                                         MinWidth="100"/>
+                            <DataGridTextColumn Header="Tình trạng"
+                                        MinWidth="120"/>
+                            <DataGridTextColumn Header="Check in"
+                                        MinWidth="100"/>
+                            <DataGridTextColumn Header="Check out"
+                                        MinWidth="110"/>
+                            <DataGridTextColumn Header="Tổng tiền"
+                                        MinWidth="130"/>
+                            <DataGridTextColumn Header="Ghi chú"
+                                        MinWidth="130"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+
+            </Grid>
+        </Grid>
+    </Border>
 </Page>
