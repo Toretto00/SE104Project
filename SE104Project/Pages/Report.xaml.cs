@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace SE104Project.Pages
 {
@@ -20,9 +22,34 @@ namespace SE104Project.Pages
     /// </summary>
     public partial class Report : Page
     {
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
         public Report()
         {
             InitializeComponent();
+
+            DataContext = this;
+
+            SeriesCollection = new SeriesCollection()
+            {
+                new ColumnSeries
+                {
+                    Title = "Doanh thu",
+                    Values = new ChartValues<double> {10,50,39,50}
+                },
+
+                new ColumnSeries
+                {
+                    Title = "Chi phí",
+                    Values = new ChartValues<double> {5,40,30,40}
+                }
+            };
+
+            Labels = new[] { "1", "2", "3", "4" };
+
+            Formatter = value => string.Format("{0:N0}", value);
+
         }
     }
 }
